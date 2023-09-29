@@ -1,0 +1,90 @@
+Documentación Técnica del Sistema de Votación
+
+1. Introducción:
+
+El Sistema de Votación es una aplicación web diseñada para permitir a los usuarios registrar su voto. Está construida utilizando tecnologías HTML, CSS, JavaScript y PHP.
+
+2. Estructura del Proyecto:
+
+Frontend:
+
+index.html: Página principal que contiene el formulario de votación.
+estilos.css: Hoja de estilos para la página principal.
+combobox.js: Script para manejar la lógica de los combobox.
+formulario.js: Script para manejar la lógica del formulario de votación.
+
+Backend:
+
+database.php: Configuración y conexión a la base de datos.
+votacion.php: Script para registrar el voto.
+getCandidatos.php: Script para obtener la lista de candidatos.
+getComunas.php: Script para obtener la lista de comunas basado en la región seleccionada.
+getRegiones.php: Script para obtener la lista de regiones.
+
+3. Funciones y Descripciones:
+
+Frontend (JavaScript):
+
+fillSelect(selectElement, data, mensajeDefault):
+
+Descripción: Llena un elemento select con datos proporcionados.
+Parámetros:
+selectElement: El elemento select que se llenará.
+data: Los datos que se usarán para llenar el select.
+mensajeDefault: El mensaje que se mostrará como opción predeterminada.
+
+Evento DOMContentLoaded:
+
+Descripción: Se ejecuta cuando el DOM está completamente cargado. Se encarga de cargar las regiones y candidatos disponibles y de manejar la lógica del formulario.
+
+Evento change en document.getElementById('region'):
+
+Descripción: Se ejecuta cuando se cambia la selección en el combobox de regiones. Carga dinámicamente las comunas basadas en la región seleccionada.
+
+Evento submit en document.getElementById('votacionForm'):
+
+Descripción: Se ejecuta cuando se envía el formulario. Realiza una validación en el frontend, envía los datos al backend y muestra mensajes de éxito o error.
+
+Backend (PHP):
+
+validarRut($dni):
+
+Descripción: Valida el RUT proporcionado según el formato chileno.
+Parámetros:
+$dni: El RUT que se validará.
+
+En votacion.php:
+
+Descripción: Se encarga de validar y registrar el voto en la base de datos.
+
+Validaciones:
+
+Verifica que el nombre no esté vacío.
+Verifica que el apellido no esté vacío.
+Verifica que el alias tenga más de 5 caracteres y contenga letras y números.
+Valida el RUT y verifica que no exista un voto con ese RUT.
+Valida el formato del email.
+Verifica que se hayan seleccionado al menos dos opciones en "Cómo se enteró de nosotros".
+Verifica que se haya seleccionado una región, comuna y candidato.
+
+En getCandidatos.php, getComunas.php y getRegiones.php:
+
+Descripción: Estos scripts se encargan de obtener la lista de candidatos, comunas y regiones, respectivamente, desde la base de datos.
+
+4. Validaciones:
+
+Frontend (JavaScript):
+
+Se valida que se haya seleccionado una región, comuna y candidato antes de enviar el formulario.
+Se valida que se hayan seleccionado al menos dos opciones en "Cómo se enteró de nosotros".
+
+Backend (PHP):
+
+Se valida que el nombre, apellido, alias, RUT, email, región, comuna y candidato no estén vacíos.
+Se valida el formato del RUT y del email.
+Se verifica que no exista un voto con el mismo RUT.
+Se valida que el alias tenga más de 5 caracteres y contenga letras y números.
+
+5. Conclusión:
+
+El Sistema de Votación es una aplicación web robusta y funcional que permite a los usuarios registrar su voto de manera eficiente. Con una estructura clara y funciones bien definidas, la aplicación garantiza una experiencia de usuario fluida y segura. Con algunas mejoras adicionales, puede convertirse en una herramienta poderosa para cualquier proceso de votación.

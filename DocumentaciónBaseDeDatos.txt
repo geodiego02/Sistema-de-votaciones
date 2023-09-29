@@ -1,0 +1,60 @@
+Documentación Técnica de la Base de Datos "votacion"
+
+1. Introducción:
+
+La base de datos "votacion" está diseñada para almacenar y gestionar la información relacionada con un sistema de votación. Contiene tablas para candidatos, regiones, comunas y votos.
+
+2. Tablas y Descripciones:
+
+candidatos:
+
+Descripción: Almacena la información de los candidatos disponibles para votar.
+Campos:
+id: Identificador único del candidato. Tipo: int(11). Clave primaria.
+nombre: Nombre del candidato. Tipo: varchar(255).
+
+comunas:
+
+Descripción: Almacena la información de las comunas de cada región.
+Campos:
+id: Identificador único de la comuna. Tipo: int(11). Clave primaria.
+nombre: Nombre de la comuna. Tipo: varchar(50).
+region_id: Identificador de la región a la que pertenece la comuna. Tipo: int(5). Clave foránea que referencia a regiones(id).
+
+regiones:
+
+Descripción: Almacena la información de las regiones.
+Campos:
+id: Identificador único de la región. Tipo: int(11). Clave primaria.
+nombre: Nombre de la región. Tipo: varchar(50).
+
+votos:
+
+Descripción: Almacena la información de los votos realizados por los usuarios.
+Campos:
+id: Identificador único del voto. Tipo: int(11). Clave primaria.
+nombre: Nombre del votante. Tipo: varchar(255).
+apellido: Apellido del votante. Tipo: varchar(255).
+alias: Alias del votante. Tipo: varchar(255).
+rut: RUT del votante. Tipo: varchar(12). Único.
+email: Email del votante. Tipo: varchar(255).
+region_id: Identificador de la región del votante. Tipo: int(11). Clave foránea que referencia a regiones(id).
+comuna_id: Identificador de la comuna del votante. Tipo: int(11). Clave foránea que referencia a comunas(id).
+candidato_id: Identificador del candidato por el que votó el usuario. Tipo: int(11). Clave foránea que referencia a candidatos(id).
+como_se_entero: Información sobre cómo se enteró el votante del proceso de votación. Tipo: varchar(255).
+
+3. Relaciones entre Tablas:
+
+La tabla comunas tiene una relación con la tabla regiones a través del campo region_id.
+La tabla votos tiene relaciones con las tablas regiones, comunas y candidatos a través de los campos region_id, comuna_id y candidato_id respectivamente.
+
+4. Índices y Restricciones:
+
+En la tabla candidatos, el campo id es la clave primaria y tiene auto incremento.
+En la tabla comunas, el campo id es la clave primaria y tiene auto incremento. Además, tiene una clave foránea region_id que referencia a regiones(id).
+En la tabla regiones, el campo id es la clave primaria y tiene auto incremento.
+En la tabla votos, el campo id es la clave primaria y tiene auto incremento. El campo rut es único. Además, tiene claves foráneas region_id, comuna_id y candidato_id que referencia a regiones(id), comunas(id) y candidatos(id) respectivamente.
+
+5. Conclusión:
+
+La base de datos "votacion" está estructurada de manera eficiente para gestionar la información relacionada con un sistema de votación. Con una estructura clara y relaciones bien definidas, garantiza la integridad y coherencia de los datos almacenados.

@@ -1,0 +1,7 @@
+Versión php: 8.1.2
+Versión mysql: 10.4.22-MariaDB
+
+Se debe importar el archivo sql o ejecutar de manera directa en la consola de mysql como un script.
+Se debe utilizar un servidor php para abrir la aplicación dejándola en una carpeta que puede llamarse proyecto.Luego de iniciar el servidor se va a un navegador y se teclea la dirección localhost/proyecto y ejecutará el archivo index.html por defecto.
+
+En local la aplicación fue probada con xamp v3.3.0, se creó una carpeta dentro de htdocs llamada votaciones y desde el navegador se accedía con la url localhost/votaciones.

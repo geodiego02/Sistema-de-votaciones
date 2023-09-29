@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votación</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <form id="votacionForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" >
+        <span class="error" id="errorNombre"></span>
+
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" name="apellido" >
+        <span class="error" id="errorApellido"></span>
+
+        <label for="alias">Alias:</label>
+        <input type="text" id="alias" name="alias" >
+        <span class="error" id="errorAlias"></span>
+
+        <label for="rut">RUT:</label>
+        <input type="text" id="rut" name="rut" >
+        <span class="error" id="errorRut"></span>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" >
+        <span class="error" id="errorEmail"></span>
+
+        <label for="region">Región:</label>
+        <select id="region" name="region" >
+            <option value="">Seleccione una región</option>
+        </select>
+        <span class="error" id="errorRegion"></span>
+
+        <label for="comuna">Comuna:</label>
+        <select id="comuna" name="comuna" >
+            <option value="">Selecciona una comuna</option>
+        </select>
+        <span class="error" id="errorComuna"></span>
+
+        <label for="candidato">Candidato:</label>
+        <select id="candidato" name="candidato" >
+            <option value="">Selecciona un candidato</option>
+        </select>
+        <span class="error" id="errorCandidato"></span>
+
+        <label>Cómo se enteró de nosotros:</label>
+        <input type="checkbox" id="como_se_entero_web" name="como_se_entero[]" value="web"> Web
+        <input type="checkbox" id="como_se_entero_tv" name="como_se_entero[]" value="tv"> TV
+        <input type="checkbox" id="como_se_entero_redes" name="como_se_entero[]" value="redes"> Redes Sociales
+        <input type="checkbox" id="como_se_entero_amigo" name="como_se_entero[]" value="amigo"> Amigo
+        <label></label>
+        <span class="error" id="errorComo_se_entero"></span>
+        <input type="submit" value="Votar">
+    </form>
+    <script src="combobox.js"></script>
+    <script src="formulario.js"></script>
+</body>
+</html>
